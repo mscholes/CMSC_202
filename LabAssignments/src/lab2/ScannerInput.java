@@ -62,6 +62,8 @@ public class ScannerInput {
         //Enter age (in words): twenty five
         //You Entered:
         // Scholes, Matt, twenty five
+        
+        input.close();
 
 	}
 
