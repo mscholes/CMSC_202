@@ -29,11 +29,13 @@ public class CommandArgs {
 // I establish it as a string in the main setup above, I can't convert it to readable below...
 // I prolly don't understand the 'Readable' function, but I need to move on so I'll just skip
 // checking if there are 0 arguments provided.
-//		
-//		if (args.length == 0) {
-//			System.out.println("Proper usage is: java lab2.CommandArgs firstname lastname age");
-//			System.exit(0);
-//		}
+//
+// EDIT: Changed approach: now concatenating the array into a string for Scanner rather than
+//		 making the array Readable. This means the following check for 0 args will work.
+		if (args.length == 0) {
+			System.out.println("Proper usage is: java lab2.CommandArgs firstname lastname age");
+			System.exit(0);
+		}
 		
 // Doesn't work...
 //		Readable rargs = args;		
