@@ -36,6 +36,7 @@ public class ConsoleInput {
         System.out.println("i1 is " + i1);
         System.out.println("s1 is " + s1);
         System.out.println("s2 is " + s2);
+        System.out.println("d1 is " + d1);
         
 	}
 
