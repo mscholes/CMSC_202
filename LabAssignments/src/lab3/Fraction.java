@@ -23,7 +23,7 @@ public class Fraction {
 	 * @param d the denominator of the new Fraction
 	 * @return None
 	 */
-	public Fraction( int n, int d)
+	public Fraction( int n, int d )
 	{
 		//A Fraction  cannot have a 0 denominator.
 		if (d == 0)
@@ -59,7 +59,99 @@ public class Fraction {
 		return denominator;
 	}
 	
-	// Stopped on 'Creating the toString method'
+	/**
+	 * Returns a String representation of this Fraction.
+	 * Precondition: None
+	 * Postcondition: None
+	 * @param None
+	 * @return A String representation of this Fraction
+	 */
+	public String toString()
+	{
+		String str = " \n";
+		
+		str += numerator;
+		str += "/";
+		str += denominator;
+		
+		return str;
+		
+	}
 	
-
+	/**
+	 * Returns a decimal representation of this Fraction.
+	 * Precondition: None
+	 * Postcondition: None
+	 * @param None
+	 * @return A decimal representation of this Fraction
+	 */	
+	public double decimalValue()
+	{		
+		double dcml_n = (double)numerator;
+		double dcml_d = (double)denominator;
+		
+		double dcml = dcml_n / dcml_d;
+		
+		return dcml;
+	}
+	
+	/**
+	 * Multiplies this Fraction by a given Fraction.
+	 * Precondition: None
+	 * Postcondition: None
+	 * @param None
+	 * @return The resultant Fraction of multiplying 2 Fractions.
+	 */	
+// Why is the form 
+//		'public Fraction multiply()'
+// used this time? Last it was
+//		'public double decimalValue()'
+// and
+//		'public String toString()'
+// 
+// If it's typecasting, where did the 'Fraction' type come from?
+// Did we create it with the constructor?
+	public Fraction multiply( Fraction otherFraction )
+	{
+		int prodNum = numerator   * otherFraction.getNumerator();
+		int prodDen = denominator * otherFraction.getDenominator();
+// Is this why we made our accessors?
+// If we hadn't, how would I get the numerator and denominator values of otherFraction?
+		
+		Fraction multipliedFraction = new Fraction(prodNum, prodDen);
+		
+		return multipliedFraction;	
+	}
+	
+	
+	/**
+	 * !!!!BONUS!!!!! Reduces the Fraction using the Euclidean algorithm.
+	 * BOOM! Recursion baby :)!
+	 * Precondition: None
+	 * Postcondition: None
+	 * @param None
+	 * @return A decimal representation of this Fraction
+	 */
+	public Fraction reduce()
+	{
+		int big;
+		int small;
+		if (denominator >= numerator)
+		{
+			big   = denominator;
+			small = numerator;
+		} else {
+			small = denominator;
+			big   = numerator;
+		}
+		return new Fraction(numerator/gcd(big,small), denominator/gcd(big,small));
+	}
+	
+	public int gcd(int big, int small){
+		if (small == 0) {
+			return big;
+		} else {
+			return gcd(small, big % small);
+		}
+	}
 }
