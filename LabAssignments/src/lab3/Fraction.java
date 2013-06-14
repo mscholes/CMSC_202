@@ -68,7 +68,7 @@ public class Fraction {
 	 */
 	public String toString()
 	{
-		String str = " \n";
+		String str = " ";
 		
 		str += numerator;
 		str += "/";
@@ -99,7 +99,7 @@ public class Fraction {
 	 * Multiplies this Fraction by a given Fraction.
 	 * Precondition: None
 	 * Postcondition: None
-	 * @param None
+	 * @param Fraction The given Fraction to be multiplied by.
 	 * @return The resultant Fraction of multiplying 2 Fractions.
 	 */	
 // Why is the form 
@@ -113,10 +113,10 @@ public class Fraction {
 // Did we create it with the constructor?
 	public Fraction multiply( Fraction otherFraction )
 	{
-		int prodNum = numerator   * otherFraction.getNumerator();
-		int prodDen = denominator * otherFraction.getDenominator();
-// Is this why we made our accessors?
-// If we hadn't, how would I get the numerator and denominator values of otherFraction?
+		int prodNum = numerator   * otherFraction.numerator;
+		int prodDen = denominator * otherFraction.denominator;
+// Should I be using the accessors we made?
+// If we hadn't made them, how would I get the numerator and denominator values of otherFraction?
 		
 		Fraction multipliedFraction = new Fraction(prodNum, prodDen);
 		
@@ -144,14 +144,53 @@ public class Fraction {
 			small = denominator;
 			big   = numerator;
 		}
+		
 		return new Fraction(numerator/gcd(big,small), denominator/gcd(big,small));
 	}
-	
-	public int gcd(int big, int small){
+	private int gcd(int big, int small){
 		if (small == 0) {
 			return big;
 		} else {
 			return gcd(small, big % small);
 		}
 	}
+
+	/**
+	 * Checks if Fraction is equal to a given Fraction.
+	 * Precondition: None
+	 * Postcondition: None
+	 * @param Fraction The given Fraction to be check for equality by.
+	 * @return String Are or aren't the same and/or equal.
+	 */
+	public String equals( Fraction otherFraction )
+	{
+		boolean sameness = false;
+		boolean equality = false;
+		if ((numerator == otherFraction.numerator) && (denominator == otherFraction.denominator))
+		  sameness = true;
+		
+		if ((this.reduce().numerator   == otherFraction.reduce().numerator) &&
+			(this.reduce().denominator == otherFraction.reduce().denominator))
+		  equality = true;
+		
+		if ((sameness == equality) && (equality == false)) {
+			return this.toString()+" & "+otherFraction.toString()+" are NEITHER the same NOR equal.";
+		} else if ((sameness == equality) && (equality == true)) {
+			return this.toString()+" & "+otherFraction.toString()+" are BOTH the same AND equal.";
+		} else {
+			return this.toString()+" & "+otherFraction.toString()+" are NOT the same BUT ARE equal.";
+		}
+	}
+	/**
+	 * They suggest this, which is clever:
+	 */
+//	public boolean equals(Fraction secondFraction) {
+//	   if ((this.numerator * secondFraction.denominator) == (this.denominator* secondFraction.numerator))
+//	    return true;
+//		 
+//	   return false;
+//	}
+	/**
+	 * Why did they use this.numerator instead of just numerator? (same question for denominator)
+	 */
 }

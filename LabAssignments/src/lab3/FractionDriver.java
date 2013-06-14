@@ -138,7 +138,7 @@ public class FractionDriver {
  * 				-- I see 2 arguments here: 'Fraction' and 'otherFraction'
  * 		!!!EDIT!!!: After looking back at the main() method we used in a previous lab, I see that
  * 					'Fraction' the argument is not an argument but typecasting. I bet arguments
- * 					are delimited by commmas not spaces.
+ * 					are delimited by commas not spaces.
  * 			
  *  2) toString() is being called on the resultant object of the first call.
  *  		- this raises 2 questions
@@ -158,11 +158,11 @@ public class FractionDriver {
  *  				new object inside the method. I think this means that the driver doesn't see
  *  				this new object outside the context of this method call.
  */    
-/*
+
         //Print whether or not the fractions are equivalent by invoking equals()
         System.out.println("Are these fractions equivalent? " +
                 firstFraction.equals(secondFraction));
-*/
+
 	}
 
 }
