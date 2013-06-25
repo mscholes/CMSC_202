@@ -1,0 +1,10 @@
+public static void main(String[] args)
+Many developers prefer writing the unit testing code for a class inside that class's main method. Please note that the 'real' main for the whole program should be in a separate Driver class.
+-- What do the mean the "real 'main'"?
+
+
+* Postcondition: returns true:   if the array contains 'x'
+*                returns false:  otherwise
+...
+* @return  True if the array contains 'x', false otherwise
+-- What is the difference between 'postcondition' and 'return'
