@@ -1,0 +1,224 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 3</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Creating the Lab3 and Fraction Classes</h1>
+<div class="sidebar">
+  <p> 
+    <a href="./">Overview</a>
+  </p>
+  <p> 
+    <a href="page1.shtml">Description</a>
+  </p>
+  <ol>
+    <li><a href="page2.shtml">Starting Eclipse</a></li>
+    <li><a href="page3.shtml">Creating the Fraction and FractionDriver Classes</a></li>
+    <li><a href="page4.shtml">Creating Instance Variables, a Constructor, Accessors, and Mutators</a></li>
+    <li><a href="page5.shtml">Creating the toString Method</a></li>
+    <li><a href="page6.shtml">Creating the decimalValue Method</a></li>
+    <li><a href="page7.shtml">Creating the multiply Method</a></li>
+    <li><a href="page8.shtml">Creating the equals Method</a></li>
+  </ol>
+  </div>
+
+
+
+<ol>
+  <li>
+    Open the project created in our first lab "LabAssignments"
+  </li>
+  <li>
+    Create a new package with the name "lab3"
+  </li>
+  <li>
+    Create two new classes:
+    <ul>
+      <li>
+        <b>FractionDriver</b> - this will serve as our driver and contain our main method.  It will read in input from the user, create instances of the Fraction object, and print output.
+      </li>
+      <li>
+         <b>Fraction</b> - this class will represent a fraction.  It will implement methods for usual tasks done with fractions (adding, multiplying, converting to decimal, etc.).
+      </li>
+    </ul>
+  </li>
+  <li>
+    Copy and paste the following code into FractionDriver.  This is
+    the code that will drive and test Fraction.  We'll be un-commenting
+    sections of the code as we implement Fraction.
+  </li>
+</ol>
+
+<pre class="brush: java">
+package lab3;
+ 
+import java.util.Scanner;
+ 
+/**
+ * FractionDriver.java - driver to test the Fraction class.
+ * @version
+ * @author
+ * @Lab CMSC 202 - Spring 2012
+ * @section
+ */
+ 
+public class FractionDriver {
+     
+    /**
+    * Driver to test the Fraction class.
+    * Precondition: None
+    * Postcondition: None
+    * @param radius: args Command-line arguments
+    * @return: None
+    */
+    public static void main(String[] args) {
+/*
+
+		//Create a Scanner object on System.in
+        Scanner scanner = new Scanner(System.in);
+        int numerator = 1;
+        int denominator = 1;
+          
+		//Use the Scanner object to get the numerator and denominator of the first fraction
+        System.out.println("Enter the numerator of the first fraction ");
+        numerator = scanner.nextInt();
+        System.out.println("Enter the denominator of the first fraction ");
+        denominator = scanner.nextInt();          
+        
+		//Create the first fraction object with input provided and print by invoking toString()
+        Fraction firstFraction = new Fraction(numerator, denominator);
+        System.out.println("The first fraction is " + firstFraction.toString());
+        
+		//Create and print the reciprocal of the first fraction
+        Fraction reciprocalFirstFraction = new Fraction(denominator, numerator);
+        System.out.println("The reciprocal of first fraction is " + reciprocalFirstFraction);
+        
+		//Use the Scanner object to get the numerator and denominator of the second fraction
+        System.out.println("Enter the numerator of the second fraction ");
+        numerator = scanner.nextInt();
+        System.out.println("Enter the denominator of the second fraction ");
+        denominator = scanner.nextInt();
+          
+		//Create the second fraction object with input provided and print by invoking toString()
+        Fraction secondFraction = new Fraction(numerator, denominator);
+        System.out.println("The Second Fraction is " + secondFraction.toString());
+ 
+		//Create and print the reciprocal of the second fraction
+    	Fraction reciprocalSecondFraction = new Fraction(denominator, numerator);
+        System.out.println("The reciprocal of the second fraction is " +
+                reciprocalSecondFraction);
+          
+*/ 
+         
+/*
+		//Print the decimal value of the two fractions by invoking decimalValue()
+    	System.out.printf("The decimal value of the first fraction is %.2f\n",
+                firstFraction.decimalValue());
+        System.out.printf("The decimal value of the second fraction is %.2f\n",
+                secondFraction.decimalValue());
+*/   
+         
+/*
+		//Print the product of the fractions by invoking multiply()
+    	System.out.println("The product of the two fractions is " +
+                firstFraction.multiply(secondFraction).toString());
+		
+		//Print whether or not the fractions are equivalent by invoking equals()
+        System.out.println("Are these fractions equivalent? " +
+                firstFraction.equals(secondFraction));
+*/
+    }
+ 
+}
+
+</pre>
+
+
+   
+<div class="labnav">
+  <div>
+    <a href="./page2.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page4.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

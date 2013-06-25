@@ -1,0 +1,137 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 9</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Breakpoints</h1>
+<div class="sidebar">
+  <p><a href="./">Overview</a></p>
+  <ol>
+     <li><a href="page1.shtml">Introduction</a></li>
+     <li><a href="page2.shtml">Creating Lab6 and Person Classes</a></li>
+     <li><a href="page3.shtml">Stack Traces</a></li>
+     <li><a href="page4.shtml">Probing</a></li>
+     <li><a href="page5.shtml">The Debug Perspective</a></li>
+     <li><a href="page6.shtml">Breakpoints</a></li>
+     <li><a href="page7.shtml">Stepping</a></li>
+     <li><a href="page8.shtml">The Assignment</a></li>
+  </ol>
+</div>
+
+
+<p>A breakpoint is a debugging tool that allows you to pause the execution of your program.  There are two types of breakpoints that can be set.
+
+<ul>
+<li>Line Break</li>
+<li>Method Break</li>
+</ul>
+Each pauses the execution under different conditions, however each maintain the <a href="page2.shtml">Stack Frame</a> in the stack frame window.
+</p>
+<img src="images/StackFrame.png" alt="Stack Frame Window" width="80%"/>
+<p>
+After creating the breakpoints, click on Run>Debug to start debugging your code.  You will notice that the execution is paused as soon as the first breakpoint is encountered.  At any point in time you can choose to resume the execution by pressing the resume button.
+</p>
+<h3>Line Break</h3>
+<p>
+Line breaks can be set in Eclipse by double clicking on a specific line in the very left side of the code window.  This will create a blue dot.  
+</p>
+<img src="images/LineBreak.png" alt="Line Break" width="80%"/>
+<p>  A line break will pause the execution of your program when that specific line of code would be executed next. </p>
+<h3>Method Break</h3>
+<p>
+A method break is a line break except that it is created on a line that defines a method.  Method breaks will pause execution every time that specific method is called.</p>
+<img src="images/MethodBreak.png" alt="Method Break" width="80%"/>
+</p>
+<h3>Breakpoint Window</h3>
+<p>
+Eclipse manages all breakpoints in the <i>"Breakpoints"</i> window that is part of the debugging perspective.  You can view all breakpoints that have been set in a program in this window.  This window will also allow you to toggle on/off specific/all breakpoints, as well as add and remove breakpoints.
+</p>
+<img src="images/BreakPoints.png" alt="Break Point Window"/>
+<br/>
+<div class="labnav">
+  <div>
+    <a href="./page5.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page7.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

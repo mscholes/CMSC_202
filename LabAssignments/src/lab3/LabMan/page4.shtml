@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 3</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Creating Instance Variables, a Constructor, Accessors, and Mutators</h1>
+
+<div class="sidebar">
+  <p> 
+    <a href="./">Overview</a>
+  </p>
+  <p> 
+    <a href="page1.shtml">Description</a>
+  </p>
+  <ol>
+    <li><a href="page2.shtml">Starting Eclipse</a></li>
+    <li><a href="page3.shtml">Creating the Fraction and FractionDriver Classes</a></li>
+    <li><a href="page4.shtml">Creating Instance Variables, a Constructor, Accessors, and Mutators</a></li>
+    <li><a href="page5.shtml">Creating the toString Method</a></li>
+    <li><a href="page6.shtml">Creating the decimalValue Method</a></li>
+    <li><a href="page7.shtml">Creating the multiply Method</a></li>
+    <li><a href="page8.shtml">Creating the equals Method</a></li>
+  </ol>
+  </div>
+
+
+
+
+<h2>Creating Instance Variables</h2>
+<p>
+  Instance variables of an object acts as data containers within an object.
+  The entire object state is represented by the values of its instance
+  variables.  Each instantiated object has its own copy of its classes'
+  instance variables.
+</p>
+<p>
+	In the Fraction class:
+</p>
+<ol>
+  <li>
+    Create a private instance variable of type <code>int</code> with the name <code>numerator</code>.
+  </li>
+  <li>
+    Create a private instance variable of type <code>int</code> with the name <code>denominator</code>.
+  </li>
+</ol>
+
+<pre class="brush: java">
+/**
+ * An int representing the numerator of the fraction.
+ */
+private int numerator;
+
+/**
+ * An int representing the denominator of the fraction.
+ */
+private int denominator;
+</pre>
+
+<p>
+  Together, the <code>numerator</code> and <code>denominator</code> variables represent the state of a particular instance of a Fraction object. The visibility modifier is <code>private</code>, meaning that only the Fraction class's methods have access to instance variables. The instance variables cannot be accessed outside the Fraction class by a different class.
+</p>
+
+  
+<h2>Creating a Constructor</h2>
+<p>
+  Constructors are invoked when a new object is created. They are used to initialized the object and set the instance variables.  All classes must have at least one constructor.
+</p>
+<p>
+	In the Fraction class:
+</p>
+<ol>
+  <li>
+    Create a public constructor that takes two parameters with the first parameter being an <code>int</code> named <code>n</code>, and the second parameter being an <code>int</code> named <code>d</code>.  These variables can be named whatever you want because, as input parameters to a method, they only exist within this method.
+  </li>
+  <li>
+    Set the instance variable <code>numerator</code> equal to the input parameter <code>n</code>, and set the instance variable <code>denominator</code> equal to the input parameter <code>d</code>.
+  </li>
+</ol>
+
+<p>
+	Since you are able to name the input parameters to the constructor whatever you want, what would happen if you were to name them <code>numerator</code> and <code>denominator</code>?  How would you be able to tell them apart from the instance variables (which are also named <code>numerator</code> and <code>denominator</code>).
+</p>
+
+<p>
+  The keyword <code>this</code> when used within a class is a reference to the calling/host object.  If you consider the following example, the parameters
+  passed into the constructor have the same name as the instance variables.  So when the <code>numerator</code> name is used within the constructor, the variable with the narrowest scope (in this case, the parameter passed to the constructor) takes precedence. In this case, the <code>this</code> keyword must be used to differentiate between the parameters and instance variables.
+</p>
+
+<pre class="brush: java">
+/**
+ * Constructs a new Fraction with a provided numerator and denominator
+ * Precondition: denominator must be greater than zero
+ * Postcondition: None
+ * @param n the numerator of the new Fraction
+ * @param d the denominator of the new Fraction
+ * @return None
+ */
+public Fraction( int numerator, int denominator )
+{
+	//A Fraction cannot have a zero denominator.
+	if (denominator == 0)
+		throw new RuntimeException("Divide By Zero Exception");
+	else
+	{	
+	  //Use this keyword to assign value of the
+	  //argument to the private variables
+	}
+}
+</pre>
+
+
+    
+
+<h2>Creating Accessors</h2>
+<p>
+  Accessor (or getter) methods simply return the value of an object's instance
+  variables.  The standard naming convention for an accessor in Java is <code>get[VariableName]()</code>.  In many cases, you may not want a user of
+  your class to access or even know about an instance variable's type or
+  value, but in most instances it is considered safe to provide accessors.
+</p>
+<p>
+  The return type of an accessor should be the type of the instance variable
+  being accessed.  In most cases it will simply consist of a single return
+  statement.
+</p>
+
+
+<pre class="brush: java">
+/**
+ * Retrieves the value of the numerator
+ * Precondition: None
+ * Postcondition: None
+ * @param None
+ * @return An int representing the numerator
+ */
+public int getNumerator()
+{
+  //return numerator
+}
+
+</pre>
+
+
+
+    
+
+<h2>Creating Mutators</h2>
+<p>
+  Mutator (or setter) methods change the values of an object's instance
+  variables.  The standard naming convention for a mutator in Java is
+  <code>set[VariableName]()</code>.  As with accessors, providing mutators is
+  not always a good idea.  Allowing a user to change certain instance
+  variables directly instead of letting the class control its own instance
+  variables may not be safe.  Take for example, any class which keeps a
+  counter instance variable.  If the counter is altered directly by a user, it
+  could ruin the state of an object.
+</p>
+<p>
+  <strong>For our Fraction class, we do not want the user to be able to change the
+  numerator or denominator. We want the Fraction class to be immutable so we will
+  not be writing mutators.</strong> But if we did for example, the form would be as
+  follows:
+</p>
+<pre class="brush: java">
+
+/**
+ * Sets the value of the numerator to the provided value
+ * Precondition: None
+ * Postcondition: None
+ * @param n the value to which the numerator should be changed.
+ * @return None
+ */
+public void setNumerator(int n)
+{
+	this.numerator = n;
+}
+</pre>
+
+
+
+
+  
+<div class="labnav">
+  <div>
+    <a href="./page3.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page5.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

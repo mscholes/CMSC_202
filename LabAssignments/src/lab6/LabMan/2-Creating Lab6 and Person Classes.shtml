@@ -1,0 +1,203 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 6</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Creating Lab6 and Person Classes</h1>
+<div class="sidebar">
+  <p><a href="./">Overview</a></p>
+  <ol>
+     <li><a href="page1.shtml">Introduction</a></li>
+     <li><a href="page2.shtml">Creating Lab6 and Person Classes</a></li>
+     <li><a href="page3.shtml">Stack Traces</a></li>
+     <li><a href="page4.shtml">Probing</a></li>
+     <li><a href="page5.shtml">The Debug Perspective</a></li>
+     <li><a href="page6.shtml">Breakpoints</a></li>
+     <li><a href="page7.shtml">Stepping</a></li>
+     <li><a href="page8.shtml">The Assignment</a></li>
+  </ol>
+</div>
+
+
+<ol>
+<li> Create two new classes: Lab6 and Person.
+<li> Copy and paste the following code into Lab6.
+
+<pre class="brush: java">
+package lab6;
+
+public class Lab6 {
+	
+	// this is insertion sort
+	// precondition - all items in the array must be non-null Comparable objects
+	// postcondition - all items will be sorted in ascending order
+    public static void insertionSort( Person [ ] personArray )
+    {
+        for( int i = 2; i < personArray.length; i++ )
+        {
+            Person tmp = personArray[ i ];
+            int j = i;
+
+            while(j > 0 && tmp.compare( personArray[ j - 1 ] ) < 0){
+                personArray[ j ] = personArray[ j - 1 ];
+                j--;
+            }
+            personArray[ j ] = tmp;
+        }
+    }
+	
+	
+	public static void main(String[] args){
+		System.out.println("Hello and Good Luck with your Debugging Exercise");
+		
+		// initialize an array of comparable objects
+		Person[] array = new Person[5];
+		array[0] = new Person("Edison", "Denise");
+		array[1] = new Person("Clarkson", "Happy");
+		array[2] = new Person("Edison","Thomas");
+		array[3] = null;
+		array[4] = new Person("Allen", "Woody");
+		
+		Lab6.insertionSort(array);
+		for(Person p: array){
+			System.out.println(p);
+		}
+	}
+}
+</pre>
+<li> Copy and paste the following code into Person.
+<pre class="brush: java">
+package lab6;
+
+/**
+ * The Person object is an object that maintains a Person's first
+ * and last name.
+ * 
+ * @author Ryan
+ *
+ */
+public class Person {
+	private String lastName;
+	private static String firstName;
+	
+	public Person(String lastName, String firstName){
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	
+	/**
+	 * CompareTo will compare two Person objects based on their
+	 * last name and then first name in ascending order. 
+	 * @return 0 if first and last name are the same
+	 * -1 if this Person proceeds the other Person
+	 * 1 if this Person succeeds the other Person
+	 */
+	public int compare(Person other){
+		// get the result of comparing the last name
+		int result = this.lastName.compareTo(other.lastName);
+		switch(result){
+			case -1:
+			case 1:
+				return result;
+			default:
+				return this.firstName.compareTo(other.firstName);
+		}
+	}
+	
+	public String toString(){
+		return String.format("%s %s", firstName, lastName);
+	}
+	
+}
+</pre>
+</ol>
+
+
+
+<div class="labnav">
+  <div>
+    <a href="./page1.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page3.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

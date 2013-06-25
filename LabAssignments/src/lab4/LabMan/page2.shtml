@@ -1,0 +1,214 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 4</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Implementing Point Class</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+<ol>
+  <li><a href="page1.shtml">Source Code Structure</a></li>
+  <li><a href="page2.shtml">Implementing Point Class</a></li>
+  <li><a href="page3.shtml">A Brief Discussion of Static Methods</a></li>
+  <li><a href="page4.shtml">Implementing Rectangle Class</a></li>
+  <li><a href="page5.shtml">Testing</a></li>
+  <li><a href="page6.shtml">Constructor to Make a Rectangle Copy</a></li>
+  <li><a href="page7.shtml">Extra Credit: Class Invariant</a>
+</ol>
+</p>
+    
+
+</div>
+
+
+<p>
+  The Point class represents the x- and y-coordinates of a single point in the
+  coordinate plane.
+</p>
+	
+
+<h2>Creating Instance Variables</h2>
+<p>
+  Create two private instance variables of type integer for the x-coordinate
+  and y-coordinate of a point.
+</p>
+
+	
+<h2>Creating a Constructor</h2> 
+<p>
+  Create a public constructor that takes two parameters with the first
+  parameter being the x-coordinate and the second parameter being the
+  y-coordinate. Assign the x- and y-coordinate parameters to the corresponding
+  instance variables.(See <a
+  href="http://www.cs.umbc.edu/courses/undergraduate/202/fall10/Labs/Lab03_F10/">Lab3-Step3</a>
+  on how to create constructors.)
+</p>
+      
+
+<pre class="brush: java">
+public Point ( int x, int y )
+{
+	// Add your code here
+	// Assign the x-coordinate parameter to the instance variable x
+	// Assign the y-coordinate parameter to the instance variable y
+}
+</pre>
+
+
+<h2>Creating Accessors</h2>
+<p>
+  Create accessors for the two instance variables.  (See <a
+  href="http://www.cs.umbc.edu/courses/undergraduate/202/fall10/Labs/Lab03_F10/">Lab3-Step3</a>
+  on how to create accessors.)
+</p>
+<ul>
+  <li>
+    <code>getX()</code> method: returns the value of the x-coordinate of the
+    point
+  </li>
+  <li>
+    <code>getY()</code> method: returns the value of the y-coordinate of the
+    point
+  </li>
+</ul>
+
+    
+<h2>Creating Distance Method</h2>
+<p>
+  To find the length and width of a rectangle from the coordinates of its four
+  corners, you will define a distance method. This method will have one Point
+  object as an argument (since you will be calling it from inside another point), and will return the floating point distance between
+  them.
+</p>
+<p>
+  The Distance method signature is:
+</p>
+<pre class="brush: java">
+public double distance ( Point otherPoint)
+{
+	// Add your code here
+}
+</pre>
+
+<p>
+  This method will use the distance formula to find the distance between two
+  points. The distance between two points (x1,y1) and (x2, y2) is defined as:
+</p>
+<p>
+  distance = square root of ( (x<sub>1</sub> - x<sub>2</sub>)<sup>2</sup> + (y<sub>1</sub> - y<sub>2</sub>)<sup>2</sup> )
+</p>
+<ul>
+  <li>
+    <code>Math.sqrt(double a)</code> is used to return the correctly rounded
+    positive square root of a double value.
+  </li>
+  <li>
+    <code>Math.pow(double a, double b)</code> is used to return the value of
+    the first argument raised to the power of the second argument.
+  </li>
+</ul>
+<p>
+  To learn more about the use of <code>sqrt( )</code>, <code>pow( )</code>,
+  and other <code>Math</code> class methods, see the <a
+  href="http://download.oracle.com/javase/1.4.2/docs/api/java/lang/Math.html">
+  Java API</a>.
+</p>
+
+<p>
+  Notice that we have not made any mutator methods. Like <code>Fraction</code> 
+in Lab 3, <code>Point</code> is an <strong>immutable</strong> class, as its 
+instance variables 
+will not change their values once the object has been created.
+</p>
+
+
+
+<div class="labnav">
+  <div>
+    <a href="./page1.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page3.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

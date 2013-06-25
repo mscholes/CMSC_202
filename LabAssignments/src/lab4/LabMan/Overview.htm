@@ -1,0 +1,174 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 4</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Lab 4: Composition</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+<ol>
+  <li><a href="page1.shtml">Source Code Structure</a></li>
+  <li><a href="page2.shtml">Implementing Point Class</a></li>
+  <li><a href="page3.shtml">A Brief Discussion of Static Methods</a></li>
+  <li><a href="page4.shtml">Implementing Rectangle Class</a></li>
+  <li><a href="page5.shtml">Testing</a></li>
+  <li><a href="page6.shtml">Constructor to Make a Rectangle Copy</a></li>
+  <li><a href="page7.shtml">Extra Credit: Class Invariant</a>
+</ol>
+</p>
+    
+
+</div>
+
+
+
+    
+<p>
+  The purpose of this lab is to
+</p>
+<ul>
+  <li>
+    Understand and practice the use of composition in program design
+  </li>
+  <li>
+    Reinforce the idea of code reuse
+  </li>
+  <li>
+    Understand the concept, implementation, and use of constructors to copy an object
+  </li>
+  <li>
+    Experience the use of static method calls
+  </li>
+</ul>
+
+
+
+
+<p>
+  In this lab, you will be implementing two classes - Rectangle and Point.
+</p>
+<p>
+  We will define a rectangle by the coordinates of its four corners.  We will
+  also write methods to compute the area and perimeter of a given rectangle
+  from these four points.  Your program will prompt for the x- and
+  y-coordinates of the four corners, referred to as "UpperLeft", "LowerLeft",
+  "LowerRight" and "UpperRight".
+</p>
+<p>
+  <img align="center" src="images/rectangle.bmp" />
+</p>
+
+<p>
+  The description of the classes is as follows:
+</p>
+
+<p>
+  <strong>Point Class</strong>
+</p>
+<p>
+  The Point class represents the x- and y-coordinates of a single point in the
+  coordinate plane.  This class is defined in <code>Point.java</code>. The
+  Rectangle class will use the Point class to represent each of its four
+  corners.
+</p>
+<p>
+  <strong>Rectangle Class</strong>
+</p>
+<p>
+  The Rectangle class represents a rectangle in the coordinate plane.  The
+  Point class is used to store the x- and y-coordinates of its four corners.
+  This class is defined in <code>Rectangle.java</code> .  The constructor will
+  have four Point objects as arguments, corresponding to the upperLeft,
+  lowerLeft, lowerRight, and upperRight corners.  The Rectangle class will
+  also have methods to calculate the length, area, and perimeter of a given
+  rectangle.
+</p>
+
+
+<div class="labnav">
+  <a href="./page1.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+
+    

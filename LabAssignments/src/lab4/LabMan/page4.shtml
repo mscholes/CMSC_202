@@ -1,0 +1,234 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 4</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Implementing Rectangle Class</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+<ol>
+  <li><a href="page1.shtml">Source Code Structure</a></li>
+  <li><a href="page2.shtml">Implementing Point Class</a></li>
+  <li><a href="page3.shtml">A Brief Discussion of Static Methods</a></li>
+  <li><a href="page4.shtml">Implementing Rectangle Class</a></li>
+  <li><a href="page5.shtml">Testing</a></li>
+  <li><a href="page6.shtml">Constructor to Make a Rectangle Copy</a></li>
+  <li><a href="page7.shtml">Extra Credit: Class Invariant</a>
+</ol>
+</p>
+    
+
+</div>
+
+
+<p>
+  The Rectangle class represents a rectangle in the coordinate plane. The
+  rectangle class will also have methods to calculate the area and perimeter
+  of a given rectangle.
+</p>
+<p>
+  In this step, you will practice using composition and code reuse.
+</p>
+
+
+<h2>Creating instance variables</h2> 
+<p>
+  Create four private instance variables of type Point for the four corners of
+  the rectangle. The Point class is used to store the x- and y-coordinates of
+  its four corners.
+</p>
+<p>
+  The use of classes as instance variables is a design method known as
+  composition. With composition, Rectangle becomes a user of the Point
+  class. The Rectangle class has no special privileges with respect to Point.
+</p>
+
+<pre class="brush: java; gutter: false">
+private Point upperLeft, lowerLeft, lowerRight, upperRight;      
+</pre>
+
+<p>
+  <strong>Question: Why should we use 4 Points instead of 8 ints?</strong>
+</p>
+
+
+    
+
+<h2>Creating a Constructor</h2> 
+<p>
+  The constructor of the Rectangle class should take the coordinates of the
+  four corners (Points) as four parameters. Assign the values of four
+  parameters(upperLeft, lowerLeft, lowerRight and upperRight) to the
+  corresponding instance variables. (See <a
+  href="http://www.cs.umbc.edu/courses/undergraduate/202/fall10/Labs/Lab03_F10/">Lab3-Step3</a>
+  on how to create constructors.)
+</p>
+<p>
+  The constructor's signature is then:
+</p>
+<pre class="brush: java">
+public Rectangle (Point upperLeft, Point lowerLeft, Point lowerRight, Point upperRight)
+{
+  // Add your code here
+}     
+</pre>
+
+    
+<h2>Creating getLength( ) method</h2> 
+<p>
+  <code>getLength()</code> method returns the length of the rectangle. This
+  method must use the 'distance' method in the Point class for finding the
+  length. You will have to choose which pair of points to use to calculate the
+  length of the rectangle.
+</p>
+<pre class="brush: java">
+public double getLength ()
+{
+   // Add your code here
+}     
+</pre>
+
+
+    
+<h2>Creating getWidth( ) method</h2> 
+<p>
+  <code>getWidth()</code> returns the width of the rectangle. This method also
+  must use the 'distance' method in the Point class for finding the width. You
+  will have to choose which pair of points to use to calculate the width of
+  the rectangle.
+</p>
+<pre class="brush: java">
+public double getWidth ()
+{
+  // Add your code here
+}     
+</pre>
+
+
+
+
+<h2>Creating getArea( ) method</h2> 
+<p>
+  <code>getArea()</code> method calculates and returns the area of the
+  rectangle. You must reuse the <code>getLength()</code> and
+  <code>getWidth()</code> method.
+</p>
+<pre class="brush: java">
+public double getArea ()
+{
+  // Add your code here
+}     
+</pre>
+
+
+
+
+<h2>Creating getPerimeter( ) method</h2> 
+<p>
+  <code>getPerimeter()</code> method calculates and returns the perimeter of
+  the rectangle. You must reuse the <code>getLength()</code> and
+  <code>getWidth()</code> method.
+</p>
+    
+<pre class="brush: java">
+public double getPerimeter () 
+{
+  // Add your code here
+}     
+</pre>
+
+<p>
+  <strong>Question: Why do we use getLength() and getWidth() instead of placing the calculations inside getPerimeter() and getArea()?</strong>
+</p>
+
+
+    
+<div class="labnav">
+  <div>
+    <a href="./page3.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page5.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

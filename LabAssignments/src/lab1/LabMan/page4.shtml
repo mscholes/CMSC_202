@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 1</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Exploring the Workbench</h1>
+<div class="sidebar">
+  <p><a href="./">Overview</a></p>
+  <ol>
+	 <li><a href="page1.shtml">Grading</a></li>
+     <li><a href="page2.shtml">Starting Eclipse</a></li>
+     <li><a href="page3.shtml">Eclipse Workspace</a></li>
+     <li><a href="page4.shtml">The Workbench</a></li>
+     <li><a href="page5.shtml">The Java Perspective</a></li>
+     <li><a href="page6.shtml">Javadoc</a></li>
+     <li><a href="page7.shtml">Hello World</a></li>
+     <li><a href="page8.shtml">Compiler Errors</a></li>
+     <li><a href="page9.shtml">Practice Finding Bugs</a></li>
+     <li><a href="page10.shtml">Basic Unix commands and the GL network</a></li>
+     <li><a href="page11.shtml">Compiling Java code<!-- and submitting the files using the submit command--></a></li>
+     <li><a href="page12.shtml">Optional Notes</a></li>   
+  </ol>
+</div>
+
+
+<p>
+  The Eclipse workbench is comprised of several &ldquo;perspectives&rdquo;.  A
+  perspective is a set of tabbed windows used for a particular task.  The most
+  frequently used perspective is the <strong>Java</strong> perspective.  It's
+  used to edit, compile, and run your code.  The <strong>Debug</strong>
+  perspective is used for step-through debugging.  The <strong>Java
+  Browsing</strong> perspective is useful for browsing through the various
+  components like packages and classes in a Java project.
+</p>
+<p>
+  The current perspective is identified and can be changed in the small box in
+  the upper right hand corner of the screen. It should currently say
+  <strong>Java</strong>, indicating the Java perspective.
+</p>
+<p>
+  <img style="width: 100%" src="./images/java_perspective1.png" alt="Java Perspective" >
+</p>    
+<p>
+  You can also go to &ldquo;Window&rarr;Open perspective&rdquo; and change the
+  perspective.  The Java Perspective is the default perspective.
+</p>
+<p>
+  Continue to Step 4 to look at the Java perspective.
+</p>
+
+    
+<div class="labnav">
+  <div>
+    <a href="./page3.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page5.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

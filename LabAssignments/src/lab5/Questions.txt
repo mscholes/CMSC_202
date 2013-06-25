@@ -8,3 +8,7 @@ Many developers prefer writing the unit testing code for a class inside that cla
 ...
 * @return  True if the array contains 'x', false otherwise
 -- What is the difference between 'postcondition' and 'return'
+
+
+"Although in this lab, you will be learning how to debug your code using the Eclipse Debugger. Using it to find errors should only be done after you have done some "mental analysis" regarding what and where the errors could be. Whenever an error occurs in your code, you should first have a look at your code and think about how or why the error occurred. Most of the time, you will be able to locate the error just by carefully examining the syntax of your code, or reflecting on the logic you have applied. Hence, you should resort to a debugger only after you have done some thinking and examining your code manually and are still unable to locate the error."
+-- What qualifies as "manual effort" before "resort[ing] to a debugger". In their first example they tell about the stack traces which is always my first step in debugging to guide my thinking to which part of my code is not working as expected. Are they saying I should think through the entire unit before even doing this?

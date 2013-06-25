@@ -1,0 +1,293 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 2</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Console Input</h1>
+<div class="sidebar">
+  <p><a href="./">Overview</a></p>
+  <ol>
+     <li><a href="page1.shtml">Console Output</a></li>
+     <li><a href="page2.shtml">Console Input</a></li>
+     <li><a href="page3.shtml">Create Project</a></li>
+     <li><a href="page4.shtml">Compiling Java Code</a></li>
+     <li><a href="page5.shtml">Using Console I/O</a></li>
+     <li><a href="page6.shtml">Command Line Arguments</a></li>
+<!--     <li><a href="page7.shtml">Submitting your code</a></li> -->
+<!--     <li><a href="page8.shtml">Transferring work from home</a></li> -->
+     <li><a href="page7.shtml">File Redirection (optional)</a></li>
+  </ol>
+  <p>
+    <a href="http://userpages.umbc.edu/~dhood2/courses/misc/fall08/working-from-home/">Working from Home</a>
+  </p>
+</div>
+
+
+<h2>Scanner</h2>
+<p>
+  <code>System.in</code> is an object that represents input from the console.
+  We will be using another class, however, to do our console input.
+  <code>System.in</code> mainly contains functions for low-level input, but
+  the <code>Scanner</code> class can be used on top of <code>System.in</code>
+  to get more useful input. For more details on Java specifics and the
+  Standard Input buffer, you can look at the <a
+  href="../../lectures/java-primer-ii.pdf">Java Primer</a>.
+</p>
+
+<h2>Using Scanner</h2>
+<p>
+  In order to use the <code>Scanner</code> class, a program must include the
+  following line at the start of the file:
+</p>
+<pre class="brush: java; gutter: false;">
+import java.util.Scanner;
+</pre>
+<p>
+  This statement tells Java to include the <code>Scanner</code> class from the
+  library <code>java.util</code>.
+</p>
+<p>
+  The first step needed to use the <code>Scanner</code> class is to create an
+  instance of it:
+</p>
+<pre name="code" class="brush: java">
+import java.util.Scanner;
+
+// ...
+
+    public static void main(String args[])
+    {
+        Scanner input = new Scanner(System.in);
+    }
+
+// ...
+</pre>
+<p>
+  The argument passed to create a <code>Scanner</code> object is the stream to
+  which it should be attached.  <code>Scanner</code> can be used to read from
+  any stream, including files, but for now we are reading from the console, so
+  we use <code>System.in</code>, which is the default console input for Java.
+</p>
+
+<h2>Scanner Methods</h2>
+<p>
+  After the object is created, the methods of <code>Scanner</code> can be used
+  to read information from the console.  There are several methods used for
+  reading in different types of objects:
+</p>
+<pre name="code" class="brush: java">
+import java.util.Scanner;
+
+// ...
+
+    public static void main(String args[])
+    {
+        Scanner input = new Scanner(System.in);
+
+        //Read in token as double
+        double d1 = input.nextDouble();
+        //Read in token as int
+        int i1 = input.nextInt();
+        //Read in token as string
+        String s1 = input.next();
+
+        //Print the tokens out
+        System.out.println("i1 is " + i1);
+        System.out.println("s1 is " + s1);
+        System.out.println("s2 is " + s2);
+    }
+
+// ...
+</pre>
+<p>
+  Each input is separated by whitespace (any number of spaces, tabs, or
+  newlines).
+<p>
+<p>
+  Given the code:
+</p>
+<pre class="brush: java; gutter: false;">
+s1 = input.next();
+s2 = input.next();
+</pre>
+<p>
+  If the input typed into the console is "hello world", then
+  <strong>s1</strong> will contain "hello" and <strong>s2</strong> will
+  contain "world". (Note that there will still be a remaining newline
+  character in the input buffer.)
+</p>
+<p>
+  <code>Scanner</code> also contains a method for reading the entire line of
+  input.
+</p>
+<pre class="brush: java; gutter: false;">
+String s1 = input.nextLine();
+</pre>
+<p>
+  Instead of stopping at any whitespace, <code>nextLine()</code> only stops at
+  a newline character.  A newline in Java is signified by the escape sequence
+  '\n'.  This character is generated by pressing enter at the console.  When
+  <code>nextLine()</code> is called, it reads in the '\n', but doesn't add it
+  to the resulting string. So, your input does not contain it, but it also
+  won't be left over in the input buffer for the next time you try and read
+  from the console.
+</p>
+
+<h2>List of Useful Methods</h2>
+<ul>
+  <li><code>next()</code></li>
+  <li><code>nextInt()</code></li>
+  <li><code>nextFloat()</code></li>
+  <li><code>nextLine()</code></li>
+  <li><code>nextDouble()</code></li>
+</ul>
+<p>
+  For each &lsquo;next&rsquo; function, there is also an equivalent 'hasNext'
+  function that can be used to check if the input stream actually contains the
+  data type you are looking for.  This can be useful for validating input.  A
+  complete list of the <code>Scanner</code> methods can be found <a
+  href="http://download.oracle.com/javase/6/docs/api/java/util/Scanner.html">here</a>.
+</p>
+
+<h2>Things to Watch For</h2>
+<p>
+  When mixing <code>nextLine()</code> and other input methods, there are a few
+  things to consider.  <code>nextLine()</code> discards the ending '\n'
+  character, but the other input methods do not.  This can lead to unexpected
+  results.  For example:
+</p>
+<pre class="brush: java">
+import java.util.Scanner;
+
+// ...
+
+    public static void main(String args[])
+    {
+        Scanner input = new Scanner(System.in);
+        double i1 = input.nextDouble();
+        String s1 = input.nextLine();
+        String s2 = input.nextLine();
+
+        System.out.println(i1);
+        System.out.println(s1);
+        System.out.println(s2);
+    }
+
+// ...
+</pre>
+<p>
+  If the input is given as follows:
+</p>
+<pre class="brush: plain; gutter: false">
+2
+hello
+world
+</pre>
+<p>
+  <strong>i1</strong> will contain '2', but <strong>s1</strong> will contain
+  only a newline character, '\n', and <strong>s2</strong> will contain
+  'hello\n'.  To avoid this, an extra <code>nextLine()</code> can be inserted
+  after <code>nextDouble()</code> to discard the '\n'. Here is a visual
+  representation of what is happening on the input buffer:
+</p>
+<p>
+  <img src="./step2_files/inputbuffer.jpg"/>
+</p>
+
+<p>
+  So the output will be:
+</p>
+<pre class="brush: plain; gutter: false">
+2
+
+hello
+</pre>
+<div class="labnav">
+  <div>
+    <a href="./page1.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page3.shtml" class="button">Next &raquo;</a>
+</div>
+
+<!-- BEGIN FOOTER -->
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

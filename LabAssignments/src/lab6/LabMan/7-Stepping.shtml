@@ -1,0 +1,137 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 9</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Stepping</h1>
+<div class="sidebar">
+  <p><a href="./">Overview</a></p>
+  <ol>
+     <li><a href="page1.shtml">Introduction</a></li>
+     <li><a href="page2.shtml">Creating Lab6 and Person Classes</a></li>
+     <li><a href="page3.shtml">Stack Traces</a></li>
+     <li><a href="page4.shtml">Probing</a></li>
+     <li><a href="page5.shtml">The Debug Perspective</a></li>
+     <li><a href="page6.shtml">Breakpoints</a></li>
+     <li><a href="page7.shtml">Stepping</a></li>
+     <li><a href="page8.shtml">The Assignment</a></li>
+  </ol>
+</div>
+
+
+<p>
+All debuggers offer the ability to <i>step</i> through the execution of your program.  Eclipse presents this capability in the Stack Frame Window that is part of its debugging perspective.  The three key features that will allow you to trace the execution are:
+<ul>
+<li>Step Over</li>
+<li>Step In</li>
+<li>Step Return</li>
+</ul>
+</p>
+<p>
+You can use each tool when the execution has been paused as a result of a breakpoint being reached.  Eclipse will gather all the information about the state of the call stack and show the line that is about to be executed in a shaded blue.  
+</p>
+<img src="images/Paused.png" alt="Paused at Line X" width="100%" />
+<p>
+The information gathered by Eclipse contains the current state of the call stack. This includes the current state of all variables that exist in memory at that particular time during execution.  You can view these in the <i>"Variables"</i> Window.  These windows, when used correctly, are a more time efficient way of probing the state of variables.
+</p>
+<img src="images/StackFrame2.png" alt="Stack Window" width="100%"/>
+<p>
+You can move through the call stack by selecting a different frame from the Stack Frame Window.  The values displayed in the Variables Window may change depending on what had occured between frames (i.e., the statements that were executed between each).
+</p>
+<h2>Stepping</h2>
+<p>
+You can advance the execution of your program using the step tools.
+<ul>
+<li><img src="images/StepOver.png" alt="Step Over" /> (Hotkey: F5) Step Over &mdash; will execute the current line where your program was paused.  You can see any changes in value in the Variables Window.</li>
+<li><img src="images/StepIn.png" alt="Step In" /> (Hotkey: F6) Step In &mdash; will step into the methods that exist on the current line.  This will add a frame into the Stack Frame Window and may change the values shown in the Variables Window depending on what variables are local to that stack frame.</li>
+<li><img src="images/StepOut.png" alt="Step Out" /> (Hotkey: F7) Step Return &mdash; will return to the previous stack frame where you or your execution had to step in.  This will update the values shown in the Variables Window.</li>
+
+</ul>
+</p>
+<div class="labnav">
+  <div>
+    <a href="./page6.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page8.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+
