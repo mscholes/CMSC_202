@@ -68,7 +68,7 @@ public class Fraction {
 	 */
 	public String toString()
 	{
-		String str = " ";
+		String str = new String(" ");
 		
 		str += numerator;
 		str += "/";
@@ -123,6 +123,20 @@ public class Fraction {
 		return multipliedFraction;	
 	}
 	
+	public static Fraction multiply( Fraction firstFraction, Fraction secondFraction)
+	{
+		int prodNum = firstFraction.numerator   * secondFraction.numerator;
+		int prodDen = firstFraction.denominator * secondFraction.denominator;
+		
+		Fraction multipliedFraction = new Fraction(prodNum, prodDen);
+		
+		return multipliedFraction;	
+	}
+	
+	
+	public Fraction square(){
+		return multiply(this, this);
+	}
 	
 	/**
 	 * !!!!BONUS!!!!! Reduces the Fraction using the Euclidean algorithm.

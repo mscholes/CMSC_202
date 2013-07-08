@@ -116,6 +116,8 @@ public class FractionDriver {
         //Print the product of the fractions by invoking multiply()
         System.out.println("The product of the two fractions is:" +
         		firstFraction.multiply(secondFraction).toString());
+        System.out.println("The product of the two fractions is:" +
+        		Fraction.multiply(firstFraction, secondFraction).toString());
         System.out.println("which reduced is:" +
         		firstFraction.multiply(secondFraction).reduce());
 

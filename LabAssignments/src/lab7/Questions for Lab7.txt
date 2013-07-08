@@ -1,0 +1,25 @@
+The following doesn't make sense:
+
+"You set this.story in the constructor as you would normally after calling super()."
+
+We didn't set an state variables in the House subclass constructor after calling super(), so how can we 'normally' do anything like that?
+
+----------
+
+Now this worked, but I don't understand how:
+
+	protected double propertyValue(){
+		if (this.hasWasher())
+			return super.propertyValue() + 100;
+		else
+		{
+			return super.propertyValue();
+		}
+	}
+	
+	public String toString(){
+		String storyStr = "\nStory: " + this.onStory();
+		return super.toString() + storyStr;
+	}
+
+How did super.toString() know to use the overridden propertyValue()... I'm getting causation error in my mental time/code-space trace. (Attached is a schematic of this trace.)
