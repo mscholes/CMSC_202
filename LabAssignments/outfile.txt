@@ -1,0 +1,5 @@
+The number of students is: 3
+[Student name = John and id = 10
+, Student name = Mike and id = 20
+, Student name = Steve and id = 30
+]

@@ -1,0 +1,13 @@
+I don't understand step d in the StudentDriver:
+
+"Allocate memory for students array based on numStudents"
+
+I'm reading that array size is set when we created the 'students' array earlier (Student students[];). So my initial assumption to what they meant by "allocate memory" being "set the number of empty array elements to the number of students" doesn't seem valid. Do they mean something different by "allocate memory"?
+
+!!!EDIT!!!
+It seems that you can set the number of elements when you instatiate a new empty object. The setting of the size I'm reading about appears to be when an array object is INSTANTIATED not when the variable that will be holding this object is CREATED.
+
+
+------
+
+
