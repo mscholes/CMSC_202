@@ -1,0 +1,172 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 12</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>ScribbleDriver Class</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+  <p>
+    <a href="lab12description.shtml">Description</a>
+  </p>
+  <ol>
+    <li><a href="page1.shtml">Source Code Structure</a></li>
+    <li><a href="page2.shtml">ColorButton Class</a></li>
+    <li><a href="page3.shtml">ScribbleDriver Class</a></li>
+    <li><a href="page4.shtml">Action Listeners and Anonymous Classes</a></li>
+    <li><a href="page5.shtml">Testing</a></li>
+  </ol>    
+</div>
+
+
+<p>
+  This is where most of the work is for this lab.  The basic parts of the
+  Swing GUI we are going to make are as follows:
+</p>
+<ul>
+  <li>
+    <strong>Step 1</strong>: Create the actual application window, also known
+    as a top-level window. We are using a <strong>JFrame</strong> for
+    this. All Swing GUIs have at least one "top level" container, the most
+    common of which is the JFrame.  The JFrame frame has already been declared for you, but you will need to instantiate it.  The constructor takes a String for the window title.  You should also use the method <code>setPreferredSize</code> to set the size of your window.
+  </li>
+  <li>
+    <strong>Step 2</strong>: Create two subsections within the JFrame known as
+    <strong>JPanels</strong>. These are used to separate different GUI
+    components into different areas of your layout. A JPanel named canvas
+    (where the user will be able to draw) and a JPanel named colorPalette (which will hold the ColorButton objects that will change your pen colors) have already been declared for you.  You will need to instantiate them, set their sizes, and add them to your JFrame.  You can add the panels to your JFrame frame by using JFrame's <code>add</code> method.  This takes in your JPanel and also the relative position where you want the JPanel to be located, using the BorderLayout class.  With BorderLayout, you create layouts such as:
+    <p>
+    <image src = "images/borderlayout.jpg"/>
+    </p>
+    So, for example, you may want your canvas added to the JFrame at <code>BorderLayout.NORTH</code> and your colorPalette added to the JFrame at <code>BorderLayout.SOUTH</code>.  It's up to you.
+  </li>
+  <li>
+    <strong>Step 3</strong>: Create buttons for each of your pen colors and then add them to your JPanel colorPalette.  This is very similar to adding JPanels to your JFrame.  These colorButtons won't do anything initially; later you will write <strong>ActionListeners</strong> for each button to give them functionality.
+  </li>
+  <li>
+    <strong>Step 4</strong>: Create a <strong>MouseListener</strong> for your
+    JFrame. This will listen for mouse clicks in your whole
+    application. Whatever you put in here will be executed when you click your
+    mouse on the appropriate component. In this lab, you will have to get the
+    last positions of your mouse cursor when you click your mouse.  You should update the variables lastMouseX and lastMouseY here.
+  </li>
+  <li>
+    <strong>Step 5</strong>: Create a <strong>MouseMotionListener</strong> for
+    your JFrame. This will draw a line from your last mouse position to your
+    current one, when your mouse cursor moves. Step 5a, you can use the
+    following code to get the JFrame's graphics context. Suppose "frame" is a
+    JFrame object. <code>Graphics g = frame.getGraphics();</code> You can
+    refer to <a href="http://download.oracle.com/javase/1.4.2/docs/api/java/awt/Graphics.html">this page</a> on how to use Java 2D Graphics library. The useful methods that you will be using are:
+    <ol>
+	  <li>
+        <code>drawLine(int x1, int y1, int x2, int y2)</code> Draws a line,
+        using the current color, between the points (x1, y1) and (x2, y2) in
+        this graphics context's coordinate system.
+      </li>
+      <li>
+         <code>setColor(Color c)</code> Sets this graphics context's current
+         color to the specified color.
+      </li>
+    </ol>
+  </li>
+  <li>
+    <strong>Step 6</strong>: Add action listeners to each of your color
+    buttons. When your color button is clicked, set your pen color to be the
+    button color.
+  </li>
+  <li>
+    <strong>Step 7</strong>: Display the window.
+  </li>
+</ul>
+
+    
+
+<div class="labnav">
+  <div>
+    <a href="./page2.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page4.shtml" class="button">Next &raquo;</a>
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

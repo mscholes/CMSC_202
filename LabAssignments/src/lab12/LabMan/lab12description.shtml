@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 13</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Description</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+  <p>
+    <a href="lab12description.shtml">Description</a>
+  </p>
+  <ol>
+    <li><a href="page1.shtml">Source Code Structure</a></li>
+    <li><a href="page2.shtml">ColorButton Class</a></li>
+    <li><a href="page3.shtml">ScribbleDriver Class</a></li>
+    <li><a href="page4.shtml">Action Listeners and Anonymous Classes</a></li>
+    <li><a href="page5.shtml">Testing</a></li>
+  </ol>    
+</div>
+
+    
+<h2>For this Lab:</h2>
+<p>
+  You should make a small scribble program with at least 2 color buttons. You
+  can pick whichever 2 colors you want. There are predefined colors in
+  java.awt.Color, but if you want to get creative, you can also define your
+  own new Color using the constructors in the same class.
+</p>
+
+
+<h2>Swing</h2>
+<p>
+  Swing is a lightweight widget toolkit. Lightweight means that GUIs drawn
+  using swing are independent of the underlying system's windowing
+  system. Heavyweight would mean that the toolkit relies on the operating
+  system's windowing toolkit. Because of this, Swing GUIs are portable between
+  systems and can have the same look and feel across all of them.
+</p>
+
+<h2>Layout Managers</h2>
+<p>
+  Layout managers are a feature in Swing that allows you to specify a place to
+  put components on your GUI without having to give specific, hard-coded
+  coordinates. You will be putting your color palette and canvas JPanels in a
+  BorderLayout layout manager. BorderLayout gives you 5 areas in which to put
+  components: NORTH, SOUTH, EAST, WEST, and CENTER. Feel free to play around
+  with where you place your buttons. I did mine with my canvas at CENTER and
+  my color palette at SOUTH.
+</p>
+
+
+
+    
+<div class="labnav">
+  &nbsp;
+</div>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+

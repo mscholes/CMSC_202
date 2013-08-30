@@ -1,0 +1,190 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2012 - Lab 10</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall12/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall12/">CMSC 202 &mdash; Fall 2012</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall12/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/schedule/">Schedule/Lecture Notes</a></li>
+<!--	    <li><a href="/courses/undergraduate/202/fall12/lectures/">Lectures</a></li> -->
+	    <li><a href="/courses/undergraduate/202/fall12/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/staff/">Staff</a></li>
+	    <li><a href="/courses/undergraduate/202/fall12/syllabus/">Syllabus</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Handling Checked Exceptions</h1>
+<div class="sidebar">
+  <p>
+    <a href="./">Overview</a>
+  </p>
+  <ol>
+    <li><a href="page1.shtml">Hierarchy of Throwable Objects</a></li>
+    <li><a href="page2.shtml">Handling Unchecked Exceptions</a></li>
+    <li><a href="page3.shtml">Handling Checked Exceptions</a></li>
+    <li><a href="page4.shtml">Source Code Structure</a></li>
+    <li><a href="page5.shtml">Student Class</a></li>
+    <li><a href="page6.shtml">File I/O</a></li>
+    <li><a href="page7.shtml">Testing</a></li>
+  </ol>
+  <a href="page8.shtml">Extra Credit: Creating Your Own Exception Class</a>
+
+</div>
+
+<p>
+Checked exceptions are subject to the <i>"Catch or Declare Rule"</i>.  This means
+you must do one of the following:</p>
+<ol>
+<li>
+Catch the exception in the method that would generate the exception using a <code>try/catch</code> block. Notice the throwing of the Exception object using the keyword <code>throw</code>.
+<pre class="brush: java">
+public Item getItemFromList(int index){
+   try{
+      if(index >= array.length)
+         throw new Exception("Out of Bounds" + index);
+      else{
+         return array[index];
+      }
+   }
+   catch(Exception e){
+      // handle the exception generated in the try block
+      e.printStackTrace();
+   }
+}
+</pre>
+<p>
+
+</p>
+</li>
+<li>
+Declare the exception that could occur from within a method using the 
+<code>throws</code> keyword.
+<pre class="brush: java">
+public Item getItemFromList(int index) throws Exception{
+   if(index >= array.length){
+      throw new Exception("Out of Bounds " + index);
+   }
+   return array[index];
+}
+</pre>
+</li>
+</ol>
+<p>When using the <code>throws</code> keyword and specifying a checked 
+exception, the Java compiler will force 
+the user
+of the <code>getItemFromList()</code> method to handle the exceptions
+thrown by the method.
+If the user does not handle the exception (either by catching it, or 
+declaring it by including <code>throws Exception</code> in the calling 
+method's header), the 
+compiler 
+produces a syntax error.</p>
+<pre class="brush: java">
+public void main(String[] args){
+   Item i = getItemFromList(5); // this violates the Catch or Declare Rule
+                                // causing a syntax error
+}
+</pre>
+<p>To fix the syntax error that is produced in the previous example, the Java compliler requires placing any statement that throws a checked exception in a try/catch block, </p>
+<pre class="brush: java">
+public void main(String[] args){
+   try{
+      Item i = getItemFromList(5);
+   }
+   catch(Exception e){
+      // Do something with the exception
+      System.err.println(e.getMessage());
+   }
+}
+</pre>
+or that the exception be declared as being thrown.
+<pre class="brush: java">
+public void main(String[] args)throws Exception{
+
+   Item i = getItemFromList(5);
+
+}
+</pre>
+
+</p>
+<p>
+In this case, if the function instead threw an 
+<code>ArrayIndexOutOfBoundsException</code>, which is an unchecked exception, it 
+would not be required by the compiler to either catch or declare it.
+</p>
+ <div class="labnav">
+  <div>
+    <a href="./page2.shtml" class="button">&laquo; Previous</a>
+  </div>
+  <a href="./page4.shtml" class="button">Next &raquo;</a>
+</div>
+ 
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall12">CMSC 202 &mdash; Fall 2012</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall12/../">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall12/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+
